@@ -1,0 +1,30 @@
+<div class="top"></div>
+<div class="item">
+	<%= error_messages_for :strona %>
+
+	<% form_for [:admin, @strona] do |f| %>
+		<p>
+			<%= f.label :nazwa %>
+			<%= f.text_field :nazwa, :style => "width: 510px" %>
+		</p>
+
+			<p>
+				<%= f.label :tresc %>
+				<%= fckeditor :strona, :tresc, {:width => '514px', :height => '500px'} %>
+			</p>
+		<% unless @strona.created_at.nil? %>
+		<p>
+			<b>Utworzono:</b>
+			  <%= @strona.created_at.to_s(:long) %>
+		</p>
+		<p>
+			<b>Ostatnie zmiany:</b>
+		  <%= @strona.updated_at.to_s(:long) %>
+		</p>
+		<%end%>
+		<p>
+			<%= f.submit 'Zapisz', :class => "button" %> albo <%= link_to 'anuluj', admin_strony_path %>
+		</p>
+	<% end %>
+</div>
+<div class="bottom"></div>

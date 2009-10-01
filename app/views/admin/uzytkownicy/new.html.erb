@@ -1,0 +1,28 @@
+<div class="top"></div>
+<div class="item">
+	<%= error_messages_for :uzytkownik %>
+	<% form_for [:admin, @uzytkownik] do |f| %>
+	<p>
+		<%= f.label :login %>
+		<%= f.text_field :login %>
+	</p>
+
+	<p>
+		<%= f.label :nazwisko, 'Imię i nazwisko:' %>
+		<%= f.text_field :nazwisko %>
+	</p>
+
+	<p>
+		<%= f.label :password, 'Hasło' %>
+		<%= f.password_field :password %>
+	</p>
+
+	<p>
+		<%= f.label :uprawnienia %>
+		<%= f.select :uprawnienia, { 'Moderator' => K_MODERATOR, 'Admin' => K_ADMIN, 'Użytkownik' => K_USER } %>
+	</p>
+
+	<p><%= f.submit 'Zapisz', :class => "button" %> albo <%= link_to "anuluj", admin_uzytkownicy_path %></p>
+	<% end %>
+</div>
+<div class="bottom"></div>

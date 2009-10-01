@@ -1,0 +1,35 @@
+<div class="top"></div>
+<div class="item">
+	<p align="center">
+		<%= link_to "Dodaj nowego użytkownika", new_admin_uzytkownik_path %>
+	</p>
+	<table>
+		<thead>
+	  		<th>Użytkownik</th>
+	  		<th width="80px">Stworzony</th>
+	  		<th style="width: 100px; text-align: center">Akcje</th>
+		</thead>
+		<tbody>
+	<% if @uzytkownicy.empty? %>
+		<tr>
+			<td colspan="3">Brak użytkowników!</td>
+		</tr>
+	<% else %>
+		<% for uzytkownik in @uzytkownicy %>
+			<tr id="element_<%= uzytkownik.id %>">
+				<td class="first">
+					<%= uzytkownik.login %>
+				</td>
+				<td><%= uzytkownik.created_at.strftime("%d-%m-%Y") %></td>
+				<td>
+					<%= link_to "Edytuj", edit_admin_uzytkownik_path(uzytkownik) %>
+					 | 
+					<%= ajax_remove uzytkownik, admin_uzytkownik_path(uzytkownik), 'uzytkownik' %>
+				</td>
+			</tr>
+		<% end %>
+	<% end %>
+		</tbody>
+	</table>
+</div>
+<div class="bottom"></div>

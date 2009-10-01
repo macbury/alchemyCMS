@@ -1,0 +1,15 @@
+<div id="login_box">
+	<h2>Strefa 51:</h2>
+	<% form_remote_tag :url => zaloguj_path, :loading => 'turnLoader(true)',:complete => 'turnLoader(false)', :html => { :id => 'form_logowanie' } do %>
+	<p><label for="login">Login:</label>
+	<%= text_field_tag 'login' %></p>
+
+	<p><label for="password">Hasło:</label>
+	<%= password_field_tag 'password' %></p>
+
+	<p><label for="remember_me">Zapamiętaj mnie:</label>
+	<%= check_box_tag 'remember_me' %></p>
+
+	<p><%= submit_tag '>>> Enter the Matrix <<<' %></p>
+	<% end %>
+</div>

@@ -1,0 +1,21 @@
+<div class="top"></div>
+<div class="item">
+	<%= error_messages_for :uzytkownik %>
+	<% form_for [:admin, @uzytkownik], :html => { :multipart => true } do |f| %>
+	<p>
+		<b>Login:</b>
+		<%= @uzytkownik.login %>
+	</p>
+	<p>
+		<%= f.label :nazwisko, 'Imię i nazwisko:' %>
+		<%= f.text_field :nazwisko %>
+	</p>
+	<p>
+		<%= f.label :password, 'Hasło' %>
+		<%= f.password_field :password %>
+	</p>
+
+	<p><%= f.submit 'Zmień', :class => "button" %></p>
+	<% end %>
+</div>
+<div class="bottom"></div>

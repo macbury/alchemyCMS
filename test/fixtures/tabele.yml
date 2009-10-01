@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  druzyna: MyString
+  mecze: 1
+  punkty: 1
+  zwyciestw: 1
+  remisow: 1
+  por: 1
+  zdobyli: 1
+  przepuszczyli: 1
+
+two:
+  druzyna: MyString
+  mecze: 1
+  punkty: 1
+  zwyciestw: 1
+  remisow: 1
+  por: 1
+  zdobyli: 1
+  przepuszczyli: 1

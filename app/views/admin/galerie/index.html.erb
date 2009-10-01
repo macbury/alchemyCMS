@@ -1,0 +1,41 @@
+<div class="top"></div>
+<div class="item">
+	<p align="center">
+		<%= link_to 'Dodaj nową galerie', new_admin_galeria_path %>
+	</p>
+	<table>
+	  <thead>
+	    <th>Nazwa:</th>
+	    <th width="80px">Dodano:</th>
+			<th width="100px">Akcje:</th>
+	  </thead>
+		<tbody>
+			<%- if @galerie.blank? -%>
+			<tr>
+				<td colspan=3 align="center">Brak galeri!</td>
+			</tr>
+			<%- end -%>
+			<% for galeria in @galerie %>
+			  <tr id="element_<%= galeria.id %>">
+			    <td class="first"><%= galeria.nazwa %></td>
+					<td><%= galeria.created_at.strftime("%d-%m-%Y") %></td>
+			    <td>
+						<%= link_to 'Edytuj', edit_admin_galeria_path(galeria) %>
+						<%= ajax_remove galeria, admin_galeria_path(galeria), 'galerie' %>
+					</td>
+			  </tr>
+			<% end %>
+		</tbody>
+	</table>
+	<div class="komentarze">
+		<p>Aby utworzyć galerię wejdź za pomocą klienta ftp na nasz serwer</p>
+		<p>
+			Host: berus4.megiteam.pl<br />
+			Login: berus4_galeria<br />
+			Hasło: ichuj
+		</p>
+		<p>Stwórz nowy folder np. UcieczkaZeSzkoly. Potem utwórz nową galerie i wybierz go.</p>
+		<p><b>Uwaga: Pierwsze wejście do galeri może troche potrwać ponieważ serwis musi wygenerować miniaturki i przeskalować zdjęcia do rozdzielczości 800x600</b></p>
+	</div>
+</div>
+<div class="bottom"></div>

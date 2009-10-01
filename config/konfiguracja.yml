@@ -1,0 +1,11 @@
+--- 
+akismet: !map:HashWithIndifferentAccess 
+  api: fdc0b35f7c25
+  url: http://0.0.0.0:3000/
+strona: !map:HashWithIndifferentAccess 
+  opis: "Zesp\xC3\xB3\xC5\x82 Szk\xC3\xB3\xC5\x82 Ponadgimnazjalnych Nr 4 powsta\xC5\x82 w dniu 01 wrze\xC5\x9Bnia 2002 r. na mocy UCHWA\xC5\x81Y Numer 348/XLII/2002  RADY POWIATU SKAR\xC5\xBBYSKIEGO z dnia 20 wrze\xC5\x9Bnia 2002 roku. Przekszta\xC5\x82ci\xC5\x82a ona Zesp\xC3\xB3\xC5\x82 Szk\xC3\xB3\xC5\x82 Kolejowych (KOLEJ\xC3\x93WK\xC4\x98, powsta\xC5\x82\xC4\x85 w 1970 r.) ze szko\xC5\x82y resortowej w szko\xC5\x82\xC4\x99 ponadgimnazjaln\xC4\x85 w zwi\xC4\x85zku z reformami systemu edukacji i administracyjn\xC4\x85."
+  head: <!-- XT:V9PPI1PqrSu2lFstOgEO03uKsx73R6AWgw0CvaZBLh4P4tveaFamjnnnXfZngJNf -->
+  glowna: /wydarzenia
+  nazwa_krotka: "Zesp\xC3\xB3\xC5\x82 Szk\xC3\xB3\xC5\x82 Ponadgimnazjalnych nr 4"
+  nazwa: "Zesp\xC3\xB3\xC5\x82 Szk\xC3\xB3\xC5\x82 Ponadgimnazjalnych nr 4 w Skar\xC5\xBCysku - Kamiennej"
+  keywords: "zsp4, zsp, zesp\xC3\xB3\xC5\x82, szk\xC3\xB3\xC5\x82, ponad, gimnazjalnych, Skar\xC5\xBCysko, Kamienna, kolejowka, kolej\xC3\xB3wka, Skarzysko, Skarzysko-kamienna, Skar\xC5\xBCysko-Kamienna, ZSP nr 4, zsp4, zsp 4"

@@ -1,0 +1,19 @@
+<div class="top"></div>
+<div class="item">
+	<h1><%= @wydarzenie.tytul %></h1>
+	<p class="desc"><b>Napisano:</b> <%= @wydarzenie.created_at.to_s(:short) %> <b>przez</b> <%= @wydarzenie.autor %></p>
+	<%= @wydarzenie.tresc %>
+	<%- unless @wydarzenie.filmy.nil? -%>
+	<div class="movie">
+		<%- for film in @wydarzenie.filmy -%>
+			<%= video film.url %>
+		<%- end -%>
+	</div>
+	<%- end -%>
+	<%- unless @wydarzenie.galeria.nil? -%>
+		<%= generuj_galerie @fotografie %>
+		<p align="center"><%= link_to 'Przejdź do galerii aby zobaczyć wszystkie fotografie', galeria_path(@wydarzenie.galeria.permalink) %></p>
+	<%- end -%>
+	<%= render_komentarze 'wydarzenie' %>
+</div>
+<div class="bottom"></div>

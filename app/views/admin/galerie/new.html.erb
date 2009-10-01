@@ -1,0 +1,21 @@
+<div class="top"></div>
+<div class="item">
+<%= error_messages_for :galeria %>
+
+<% form_for([:admin,@galeria]) do |f| %>
+  <p>
+    <%= f.label :nazwa %>
+    <%= f.text_field :nazwa, :style => "width: 300px" %>
+  </p>
+
+  <p>
+    <%= f.label :katalog %>
+    <%= f.select :katalog, Fotografia.find_all_galerie, :include_blank => true %>
+  </p>
+
+  <p>
+    <%= f.submit "Zapisz", :class => 'button' %> albo <%= link_to 'anuluj', admin_galerie_path %>
+  </p>
+<% end %>
+</div>
+<div class="bottom"></div>

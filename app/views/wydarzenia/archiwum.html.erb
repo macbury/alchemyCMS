@@ -1,0 +1,26 @@
+<div class="top"></div>
+<div class="item">
+	<p align="center">
+		Rok: 
+		<%- for rok_wydarzenia in @lata -%>
+			<%= rok_link(rok_wydarzenia) %> 
+		<%- end -%>
+	</p>
+	<table>
+		<%- @wydarzenia.each do | miesiac, wydarzenia | -%>
+			<tr>
+				<th colspan=2><%= miesiac_pl(miesiac) %></th>
+			</tr>
+			<%- for wydarzenie in wydarzenia -%>
+			<tr>
+				<td class="data"><%= dzien_pl wydarzenie %></td>
+				<td><%= wydarzenia_link wydarzenie, wydarzenie.tytul %></td>
+			</tr>
+			<%- end -%>
+		<%- end -%>
+		<%- if @wydarzenia.empty? -%>
+			<tr colspan=2><td>Brak wydarzeń.</td></tr>
+		<%- end -%>
+	</table>
+</div>
+<div class="bottom"></div>

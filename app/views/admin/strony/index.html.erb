@@ -1,0 +1,33 @@
+<div class="top"></div>
+<div class="item">
+	<p align="center">
+		<%= link_to "Dodaj nową stronę", new_admin_strona_path %>
+	</p>
+	<table>
+		<thead>
+	  		<th>Nazwa:</th>
+	  		<th width="80px">Utworzono:</th>
+	  		<th style="width: 80px; text-align: center">Akcje:</th>
+		</thead>
+		<tbody>
+	<% if @strony.empty? %>
+		<tr>
+			<td colspan="3">Brak stron!</td>
+		</tr>
+	<% else %>
+		<% for strona in @strony %>
+			<tr id="element_<%= strona.id %>">
+				<td class="first"><%= link_to strona.nazwa, strona, :popup => true %></td>
+				<td><%= strona.created_at.strftime("%d-%m-%Y") %></td>
+				<td>
+					<%= link_to "Edytuj", edit_admin_strona_path(strona) %>
+					 | 
+					<%= ajax_remove strona, admin_strona_path(strona.id), 'stronę' %>
+				</td>
+			</tr>
+		<% end %>
+	<% end %>
+		</tbody>
+	</table>
+</div>
+<div class="bottom"></div>

@@ -1,0 +1,11 @@
+--- 
+pid: tmp/pids/thin.pid
+socket: /tmp/thin_myapp.sock
+log: log/thin.log
+max_conns: 1024
+timeout: 30
+chdir: /home/berus4/www/alchemyCMS
+environment: production
+max_persistent_conns: 0
+daemonize: true
+servers: 1

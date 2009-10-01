@@ -1,0 +1,28 @@
+<div class="top"></div>
+<div class="item">
+	<p align="center">
+		<%= link_to 'Dodaj link do menu strony', new_admin_link_path %>
+	</p>
+	<ul id="menuList">
+		<% if @linki.blank? %>
+			<li>Brak elementów w menu!</li>
+		<% else %>
+			<% @linki.each_with_index do |link, i| %>
+			<li id="element_<%= link.id %>">
+				<%= link_to link.nazwa, link.hyperlink %>
+				(
+					<%= link_to "Edytuj", edit_admin_link_path(link) %> | 
+					<%= ajax_remove link, [:admin, link], 'link' %>
+				)
+			</li>
+			<% end %>
+			
+			<%= sortable_element "menuList", :url => { :action => "order" }, 
+																			 :tag => "li",
+																			 :update => 'menu',
+																			 :complete => visual_effect (:pulsate, 'menu', :duration => 1) %>
+			
+		<% end %>
+	</ul>
+</div>
+<div class="bottom"></div>

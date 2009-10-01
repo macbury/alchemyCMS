@@ -1,0 +1,13 @@
+<div id="komentarz_<%= komentarz.id %>">
+	<strong><%= h komentarz.autor %> napisał <%= distance_of_time_in_words_pl komentarz.created_at %> temu</strong>
+	<%= usun_komentarz komentarz if logged_in? -%>
+	<%= spam_komentarz komentarz if logged_in? -%>:
+	<span id="komentarz_tresc_<%= komentarz.id %>">
+		<%= simple_format h (komentarz.tresc) %>
+	</span>
+	<%= in_place_editor "komentarz_tresc_#{komentarz.id}", 
+					:url => {:controller=> 'admin/komentarze', :action => 'update', :id => komentarz, :authenticity_token => form_authenticity_token}, 
+					:load_text_url => {:controller=> 'admin/komentarze', :action => 'show', :id => komentarz},
+					:rows => 10,
+					:cols => 65 if moderator? -%>
+</div>

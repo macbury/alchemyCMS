@@ -1,0 +1,19 @@
+<div class="top"></div>
+
+<div class="item">
+	<%- for wydarzenie in @wydarzenia -%>
+	<div>
+		<h1><%= wydarzenie.tytul %></h1>
+		<p class="desc"><b>Napisano:</b> <%= wydarzenie.created_at.to_s(:short) %></p>
+		<%= wydarzenie.tresc.gsub(/<\/?[^>]*>/, '') %>...
+		<div class="szopa">
+			<%= wydarzenia_link wydarzenie, 'Czytaj dalej...' %>
+			 | 
+			<%= wydarzenie_komentarze_link wydarzenie %>
+		</div>
+	</div>
+	<%- end -%>
+	<p align="center"><%= will_paginate @wydarzenia %></p>
+</div>
+
+<div class="bottom"></div>

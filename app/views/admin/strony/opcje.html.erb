@@ -1,0 +1,39 @@
+<div class="top"></div>
+<div class="item">
+	<% form_tag do %>
+	<h1>Strona:</h1>
+	<p>
+		<%= label "strona", "nazwa", "Pełny tytuł" %>
+		<%= konfig_text "strona", "nazwa"%>
+	</p>
+	<p>
+		<%= label "strona", "nazwa_krotka", "Krutki tytuł" %>
+		<%= konfig_text "strona", "nazwa_krotka"%>
+	</p>
+	<p>
+		<%= label "strona", "opis" %>
+		<%= konfig_area "strona", "opis" %>
+	</p>
+	<p>
+		<%= label "strona", "keywords", "Słowa kluczowe" %>
+		<%= konfig_area "strona", "keywords" %>
+	</p>
+	<p>
+		<%= label "strona", "glowna", "Główna strona" %>
+		<%= konfig_text "strona", "glowna" %>
+	</p>
+	<h1>Akismet:</h1>
+	<p>
+		<%= label "akismet", "api", "API KEY:" %>
+		<%= konfig_text "akismet", "api" %>
+	</p>
+	<p>
+		<%= label "akismet", "url", "Pełna ścieżka:" %>
+		<%= konfig_text "akismet", "url" %>
+	</p>
+	<p>
+		<%= submit_tag "Zapisz",  :class => "button", :name => "strona" %>
+	</p>
+	<% end %>
+</div>
+<div class="bottom"></div>

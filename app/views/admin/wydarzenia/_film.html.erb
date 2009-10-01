@@ -1,0 +1,7 @@
+<%- fields_for 'wydarzenie[film_attributes][]', film do | film_form | -%>
+<p class="film"<%= 'id="film_'+film.id.to_s+'"' unless film.new_record? -%>>
+	<%= film_form.text_field :url, :style => "width: 440px" %>
+	<%= link_to_function 'Usuń','this.up(".film").remove();' if film.new_record? %>
+	<%= link_to_remote 'Usuń', :url => { :action => 'usun_film', :id => film }, :complete => "Element.remove('film_#{film.id}');" unless film.new_record? %>
+</p>
+<%- end -%>

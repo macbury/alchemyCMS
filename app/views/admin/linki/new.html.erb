@@ -1,0 +1,20 @@
+<div class="top"></div>
+<div class="item">
+	<%= error_messages_for :link %>
+
+	<% form_for([:admin, @link]) do |f| %>
+	<p>
+		<%= f.label :nazwa %>
+		<%= f.text_field :nazwa, :style => "width: 300px" %>
+	</p>
+	<p>
+		<%= f.label :hyperlink %>
+		<%= f.text_field :hyperlink, :style => "width: 300px" %><br/>
+		<small>(Rozpocznij od http:// dla zewnętrznych adresów)</small>
+	</p>
+	<p>
+		<%= f.submit "Zapisz", :class => "button" %> albo <%= link_to 'anuluj', admin_linki_path %>
+	</p>
+	<% end %>
+</div>
+<div class="bottom"></div>

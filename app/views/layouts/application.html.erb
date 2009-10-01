@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head>
+	<%= render :partial => "/layouts/head" %>
+</head>
+
+<body>
+	<%- if ie? -%>
+	<div id="infobar"><a href=http://browsehappy.pl/infobar>
+	Internet Explorer nie potrafi poprawnie wyświetlić tej strony. Kliknij tutaj, aby dowiedzieć się więcej...
+	</a></div>
+	<%- end -%>
+
+<div class="container_top"></div>
+
+	<div class="container">
+		<div class="main">
+			
+			<div class="header"></div>
+			
+			<div class="sidenav">
+				<div class="top"></div>
+				<div class="item">
+					<h3>Menu:</h3>
+	        <ul id="menu">
+						<%= generuj_menu -%>
+						<%= tab_to 'Zaloguj', zaloguj_path unless logged_in? %>
+	        </ul>
+				</div>
+				<div class="bottom"></div>
+			<%- if logged_in? -%>
+				<div class="top"></div>
+				<div class="item">
+					<h3>Profil: <%= h self.current_uzytkownik.login %></h3>
+					<ul>
+						<%= tab_to 'Galerie', admin_galerie_path %>
+						<%= tab_to 'Moje wydarzenia', moje_admin_wydarzenia_path %>
+						<%= tab_to 'Edytuj profil', admin_profil_path %>
+						<%= tab_to 'Wyloguj', wyloguj_admin_uzytkownicy_path %>
+					</ul>
+				</div>
+				<div class="bottom"></div>
+				<%- if moderator? -%>
+				<div class="top"></div>
+				<div class="item">
+					<h3>Zarządzanie stroną:</h3>
+					<ul>
+						<%= tab_to 'Dodatkowe strony', admin_strony_path %>
+						<%= tab_to 'Menu strony', admin_linki_path %>
+						<%= tab_to 'Wydarzenia', admin_wydarzenia_path %>
+						<%= tab_to 'Komentarze', admin_komentarze_path %>
+						<%- if admin? -%>
+							<%= tab_to 'Konfiguracja strony', admin_konfiguracja_path -%>
+							<%= tab_to 'Użytkownicy', admin_uzytkownicy_path -%>
+						<%- end -%>
+						
+					</ul>
+				</div>
+				<div class="bottom"></div>
+				<%- end -%>
+			<%- end -%>
+			</div>
+			
+			
+			<div class="content">			
+				<%- flash.each do |key, value| -%>
+					<div class="<%= key %>">
+						<%= value %>
+					</div>
+				<%- end -%>
+			
+				<%= yield %>
+			</div>
+			
+			<div id="clearer"></div>
+			
+		<div class="footer">
+			&copy; 2007/<%= Time.new.year %> AlchemyCMS <a href="http://polish-128202710626.spampoison.com">powered</a> by Ruby on Rails. <a href="javascript:Effect.BlindDown('hala_chwaly')">Hala Chwały &#x2193; &#x2193;</a>
+			<div id="hala_chwaly" style="display:none">
+				<b>Silnik:</b><br />
+				Buras Arkadiusz<br />
+				<b>Szata graficzna:</b><br />
+				Stopa Paweł<br />
+				Buras Arkadiusz<br />
+			</div>
+		</div>
+		</div>
+	</div>
+	<div class="container_bottom"></div>
+</body>
+
+</html>

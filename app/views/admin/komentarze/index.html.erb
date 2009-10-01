@@ -1,0 +1,29 @@
+<div class="top"></div>
+<div class="item">
+	<h1>Ostatnio dodane komentarze</h1>
+	<div class="komentarze">
+		<%- if @komentarze.blank? -%>
+			<p>Brak komentarzy</p>
+		<%- end -%>
+		<%= render :partial => 'admin/komentarze/komentarz', :collection => @komentarze  %>
+	</div>
+	<h1>Prawdopodobnie spam:</h1>
+	<div class="komentarze">
+<%- if @spam.blank? -%>
+	<p>Brak spamu</p>
+<%- else -%>	
+	<%- form_tag :action => :destroy do -%>
+		<%- for komentarz in @spam -%>
+			<p id="komentarz_<%= komentarz.id %>">
+				<%= check_box_tag 'komentarze_ids[]', komentarz.id, true %>
+				<%= ham_komentarz komentarz %>
+				<%= usun_komentarz komentarz %> <b><%= h komentarz.nazwisko %>:</b>
+				<%= h truncate(komentarz.tresc, 30) %>
+			</p>
+		<%- end -%>
+		<%= submit_tag 'Usuń wszystkie zaznaczone', :class => 'button' %>
+	<%- end -%>
+<%- end -%>
+	</div>
+</div>
+<div class="bottom"></div>

@@ -1,0 +1,16 @@
+<div class="komentarze">
+	<h1><a name="komentarze">Komentarze:</a></h1>
+	<%- form_remote_for [:admin, @komentarz], :method => :put, :url => { :controller => '/admin/komentarze', :action => 'create', :typ => typ, :id => @wydarzenie.id }, :loading => "$('submit_comment_button').disabled = true; $('submit_comment_button').hide();" do |f| -%>
+		<p>
+			<%= f.label :tresc, 'Treść' %>
+			<%= f.text_area :tresc, :style => "width: 487px; height: 70px" %>
+		</p>
+		<p>
+			<%= f.submit 'Komentuj!', :class => "button", :id => 'submit_comment_button' %>
+		</p>
+	<%- end -%>
+	<div id="komentarz_block">
+		<%= render :partial => '/admin/komentarze/komentarz', :collection => @komentarze  %>
+	</div>
+	<%= will_paginate @komentarze %>
+</div>

@@ -1,0 +1,42 @@
+<div class="top"></div>
+<div class="item">
+	<%= error_messages_for :wydarzenie %>
+	<% form_for([:admin,@wydarzenie]) do |f| %>
+	  <p>
+	    <%= f.label :tytul %>
+	    <%= f.text_field :tytul, :style => "width: 510px" %>
+	  </p>
+		
+		<p>
+			<b>Autor:</b>
+			<%= @wydarzenie.autor %>
+		</p>
+		
+		<p>
+			<%= f.label :created_at, 'Data' %>
+			<%= f.datetime_select :created_at %>
+		</p>
+
+	  <p>
+	    <%= f.label :tresc %>
+	    <%= fckeditor :wydarzenie, :tresc, {:width => '514px', :height => '400px'} %>
+	  </p>
+		<p><b>Materiał wideo:</b><small>np. http://pl.youtube.com/watch?v=2Ete1akMDZA</small></p>
+		
+		<div id="filmy"><%= render :partial => 'admin/wydarzenia/film', :collection => @wydarzenie.filmy %></div>
+		
+		<p align="center"><%= link_to_function 'Dodaj film' do |page|
+			page.insert_html :bottom, :filmy, :partial => 'admin/wydarzenia/film', :object => Film.new
+		end %></p>
+		
+		<p>
+			<%= f.label :galeria_id, 'Galeria' %>
+			<%= f.select :galeria_id, Galeria.find(:all).collect { |g| [g.nazwa, g.id] }, :include_blank => true %>
+		</p>
+		
+	  <p>
+	    <%= f.submit "Zapisz", :class => "button" %> albo <%= link_to 'anuluj', admin_wydarzenia_path %>
+	  </p>
+	<% end %>
+</div>
+<div class="bottom"></div>

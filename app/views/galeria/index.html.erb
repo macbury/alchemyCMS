@@ -1,0 +1,9 @@
+<div class="top"></div>
+<div class="item">
+	<ul>
+		<%- for galeria in @galerie -%>
+		<li><%= link_to galeria.nazwa, galeria_path(galeria.permalink) %></li>
+		<%- end -%>
+	</ul>
+</div>
+<div class="bottom"></div>

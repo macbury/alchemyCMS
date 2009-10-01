@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  gracz: MyString
+  z: MyString
+  do: MyString
+  cena: 1.5
+
+two:
+  gracz: MyString
+  z: MyString
+  do: MyString
+  cena: 1.5

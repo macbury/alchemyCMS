@@ -1,0 +1,9 @@
+if logged_in?
+  page.visual_effect :Fade, 'login_box'
+  page.delay 0.5 do
+    page.redirect_to ajax_redirect_back_or_default
+  end
+else
+  page['form_logowanie'].reset
+  page.visual_effect :shake, 'login_box'
+end

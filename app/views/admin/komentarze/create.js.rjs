@@ -1,0 +1,19 @@
+if @komentarz.errors.empty?
+  page[:new_komentarz].reset
+  unless @komentarz.akceptowany?
+    page.alert "Twój komentarz został rozpoznany jako potencjalny spam. Zostanie on pokazany na stronie jeśli zostanie zakceptowany przez moderatora."
+  else
+    page.insert_html :top, :komentarz_block, :partial => 'komentarz', :object => @komentarz
+    page["komentarz_#{@komentarz.id}"].hide
+    page.delay 0.5 do
+      page.visual_effect :BlindDown, "komentarz_#{@komentarz.id}", :duration => 0.5
+      page.visual_effect :Appear, "komentarz_#{@komentarz.id}", :duration => 0.6
+    end
+  end
+else
+  blad = String.new
+  @komentarz.errors.each_full { | msg | blad += "#{msg} " }
+  page.alert "Nie można dodać komentarza z powodu: #{blad}"
+end
+page[:submit_comment_button].disabled = false
+page[:submit_comment_button].show

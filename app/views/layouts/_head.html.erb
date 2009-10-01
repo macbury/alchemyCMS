@@ -1,0 +1,13 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<%= title_tag %>
+<meta name="Description" content="<%= strona_opis %>" />
+<meta name="Keywords" content="<%= slowa_kluczowe %>" />
+<meta name="Author" content="eVo Studio" />
+<%= javascript_include_tag 'prototype', 'effects', 'controls', 'smoothscroll', 'lightbox', 'builder', 'dragdrop' %>
+<%= javascript_include_tag '/fckeditor/fckeditor' if logged_in? %>
+<%= yield :javascript %>
+<meta name="Distribution" content="Global" />
+<meta name="Robots" content="index,follow" />
+<%= stylesheet_link_tag 'lightbox', 'lay' %>
+<%= stylesheet_link_tag 'infobar' if ie? %>
+<link rel="alternate" type="application/rss+xml" title="<%= strona_tytul %> - Wydarzenia" href="<%= wydarzenia_rss_path %>" />

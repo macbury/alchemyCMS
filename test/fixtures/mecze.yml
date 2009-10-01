@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  druzyna1: MyString
+  druzyna2: MyString
+  kiedy: 2008-03-22
+  punkty1: 1
+  punkty2: 1
+
+two:
+  druzyna1: MyString
+  druzyna2: MyString
+  kiedy: 2008-03-22
+  punkty1: 1
+  punkty2: 1
